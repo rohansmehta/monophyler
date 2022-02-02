@@ -189,6 +189,7 @@ def add_samples(t, samplenames, samples):
         if node.name in samplenames:
             node.add_features(samples = [samples[x] for x in range(len(samples)) if samplenames[x] == node.name])
 
+# This function is from Vince Knight: https://vknight.org/blog/posts/continuous-time-markov-chains/
 def is_steady_state(state, Q):
     """
     Returns a boolean as to whether a given state is a steady 
@@ -196,6 +197,7 @@ def is_steady_state(state, Q):
     """
     return np.allclose((state @ Q), 0)
 
+# This function is from Vince Knight: https://vknight.org/blog/posts/continuous-time-markov-chains/
 def obtain_steady_state_with_matrix_exponential(Q, start, max_t=100):
     """
     Solve the defining differential equation until it converges.
